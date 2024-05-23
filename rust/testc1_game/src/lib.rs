@@ -1,3 +1,4 @@
+mod game;
 use wasm_bindgen::prelude::*;
 
 
@@ -35,14 +36,27 @@ extern "C" {
 }
 
 
-
 #[wasm_bindgen]
 pub fn zkmain() -> i64 {
+    let mut _arra: [u64; 1024]=[0; 1024];
+    let mut _arrb: [u64; 1024]=[0; 1024];;
+    let mut _arrbout: [u64; 1024]=[0; 1024];
+    let mut _arrbcount:usize = 0;
     unsafe
     {
-        let a:u64 = wasm_input(0);
-        let b:u64 = wasm_input(1);
-        require(a==b);
+        let counta = wasm_input(0) as usize;
+        let countb = wasm_input(1) as usize;
+        for i in 0..counta        {
+            _arra[i] = wasm_input(0);
+        }
+        for i in 0..countb        {
+            _arrb[i] = wasm_input(0);
+        }
+        game::DoGame(counta,&_arra as *const u64,&mut _arrbcount ,&mut _arrbout as *mut u64);
+     
+        for i in 0..countb        {
+            require( _arrb[i] == _arrbout[i]);
+        }
     }
     return 0;
 }
