@@ -13,6 +13,9 @@ int zkmain() {
     uint64_t counta = (int)wasm_input(0);
     uint64_t countb = (int)wasm_input(1);
     
+    //new 不行，也许是没有实现堆
+    //cpp 不行，改写成c语言，栈分配  可以通过
+
     //read input
     uint64_t* arra = new  uint64_t[counta];
     uint64_t* arrb = new  uint64_t[countb];
