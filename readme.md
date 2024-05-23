@@ -15,8 +15,8 @@
 ## C语言 成功  
 ## Rust 成功  
 
-# provf 测试结果
-## CPP 成功
+# prove 测试结果
+## C语言 成功
 ## Rust 成功
 ```
 # test1——heelo 的test数据
