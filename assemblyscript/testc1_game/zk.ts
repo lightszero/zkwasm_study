@@ -7,6 +7,11 @@ declare function wasm_input(x: i32): i64
 @external("env", "require")
 declare function require(x: i32): void
 
+export function abort(message: string | null, fileName: string | null, lineNumber: u32, columnNumber: u32): void {
+    // 实现细节
+    let a=0;
+    a++;
+}
 export function zkmain(): void {
     var arra: i64[] = [];
     var arrb: i64[] = [];
